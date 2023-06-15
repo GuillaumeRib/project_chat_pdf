@@ -1,0 +1,6 @@
+# utilities
+langchain
+openai
+
+# User Interface
+streamlit
