@@ -1,6 +1,7 @@
 # utilities
 langchain
 openai
+pypdf
 
 # User Interface
 streamlit
