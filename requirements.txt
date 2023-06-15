@@ -1,3 +1,4 @@
+pypdf
 langchain
 chromadb
 tiktoken
