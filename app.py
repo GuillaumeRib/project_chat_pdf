@@ -42,7 +42,7 @@ if openai_key:
     openai.api_key = os.environ["OPENAI_API_KEY"]
     st.markdown('API key loaded')
 
-    st.subheader(f':open_file_folder:PDF Uploader')
+    st.subheader(f':open_file_folder:  PDF Uploader')
     pdf_file = st.file_uploader('Select your PDF document')
     if pdf_file:
         with open('temp.pdf', 'wb') as temp_file:
@@ -79,7 +79,7 @@ if openai_key:
 
         st.markdown('---')
         ### PROMPT ###
-        st.subheader(f':thinking_face:Question')
+        st.subheader(f':thinking_face:  Question')
         prompt = st.text_input('Input your question here')
 
         ### GET ANSWER FROM MODEL ###
