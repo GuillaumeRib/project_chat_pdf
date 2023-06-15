@@ -2,6 +2,7 @@
 langchain
 openai
 pypdf
+chromadb
 
 # User Interface
 streamlit
