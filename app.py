@@ -8,7 +8,7 @@ from functions import *
 # Display the logo image in the second column
 col1, col2 = st.columns([1,1])
 #col1.image('logo-admin.png', width=300)
-col1.title('PDF Q&A by ChatGPT')
+col1.title('PDF Q&A')
 col2.subheader('Ask questions to your PDF documents | Powered by Chat GPT 3.5 turbo')
 
 with st.expander("How it works ?"):
@@ -33,10 +33,7 @@ with st.expander("How it works ?"):
 
 st.subheader(f':closed_lock_with_key: API Key')
 openai_key = st.text_input("Enter your OpenAI API key",type='password')
-
-# TO DELETE AFTER
 # Set the API key as an environment variable
-
 if openai_key:
     os.environ["OPENAI_API_KEY"] = openai_key
     openai.api_key = os.environ["OPENAI_API_KEY"]
