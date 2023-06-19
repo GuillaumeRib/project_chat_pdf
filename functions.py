@@ -12,13 +12,13 @@ def parse_pdf(temp_file):
 
 
 
-def get_answer(prompt,vectordb):
+def get_answer(prompt,vectordb,n_chunks):
     # Select llm model
     from langchain.chat_models import ChatOpenAI
     chat_open_ai_llm = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.5)
 
     # Select number of chunks to pass to llm model after similarity performed on embeddings
-    k = 4
+    k = min([4,n_chunks])
     retriever = vectordb.as_retriever(search_type='similarity',
                                    search_kwargs={'k':k}
                                             )

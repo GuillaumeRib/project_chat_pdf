@@ -47,7 +47,7 @@ with st.expander("How it works"):
 
 
 st.subheader(f':closed_lock_with_key: API Key')
-openai_key = st.text_input("Enter your OpenAI API key",type='password')
+openai_key = st.text_input("Enter your OpenAI key and start talking to your PDF",type='password')
 
 
 # Set the API key as an environment variable
@@ -63,8 +63,6 @@ if openai_key:
 
     ### CHECK IF PDF DOCUMENT UPLOADED ###
     if pdf_file:
-        # Reset the prompt
-
         with open('temp.pdf', 'wb') as temp_file:
             temp_file.write(pdf_file.read())
 
@@ -72,8 +70,8 @@ if openai_key:
 
         ### PARSING ###
         documents, texts = parse_pdf('temp.pdf')
-        st.write(f"{len(texts)} text chunks created from {len(documents)} pages found in the pdf...")
-
+        n_chunks = len(texts)
+        st.write(f"{n_chunks} text chunks created from {len(documents)} pages found in the pdf...")
 
         from langchain.vectorstores import Chroma
         from langchain.embeddings import OpenAIEmbeddings
@@ -110,7 +108,7 @@ if openai_key:
             st.markdown('---')
             # Run Model for answer if prompt
             with st.spinner("Looking into this for you ..."):
-                answer = get_answer(prompt,vectordb)
+                answer = get_answer(prompt,vectordb,n_chunks)
                 st.subheader(f':rocket:  Answer')
                 st.markdown(f'**Question:** {prompt}')
                 st.write(answer['result'])
