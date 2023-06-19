@@ -9,17 +9,33 @@ from functions import *
 col1, col2 = st.columns([1,1])
 #col1.image('logo-admin.png', width=300)
 col1.title('PDF Q&A')
-col2.subheader('Ask questions to your PDF documents | Powered by Chat GPT 3.5 turbo')
+col2.subheader("Ask questions to your PDF documents | Powered by Open AI's ChatGPT")
 
-with st.expander("How it works ?"):
+with st.expander("How it works"):
     st.markdown('''
-                This tools aims to parse your own PDF documents, so that you can train LLMs on them and ask specific questions on their contents.\n
-                - Provide an API key from Open AI. It costs some :money: but not so much. If you dont have one, sign up on https://openai.com/ and get USD / EUR 5 free credits.
-                - Select a PDF document you want to talk to.
-                - Ask a question
-                - Get the model's answer ... and see the sources + pages that were used.
+                - This tool aims to parse your own PDF documents, allowing you to train language models (LLMs) on them and ask specific questions about their contents.
+                - Provide an API key from OpenAI.
+                - It incurs a cost, but you can utilize the free credits (USD 5) provided by OpenAI when signing up (https://openai.com/). Registration should take no more than 1-2 minutes.
+                - The underlying models have been selected based on their strong performance-to-cost ratio (see pricing information and cost examples below).
+                - Select a PDF document with which you want to interact.
+                - Ask your question and receive the answer along with an excerpt from the source and the corresponding page number.
+                ''')
 
+    st.markdown('---')
 
+    st.markdown('''
+                **OpenAI Pricing info**:
+                - You can find up-to-date pricing information here: https://openai.com/pricing
+                - The embedding model used is Ada v2, which provides a highly affordable option while maintaining accuracy.
+                - The LLM model used is gpt-3.5-turbo, offering a great balance between cost savings and performance/accuracy (20 times cheaper than GPT-4).
+
+                **Pricing example**:
+                - Embedding a 90-page PDF and asking 5 questions (including answers) should cost approximately USD 0.02.
+               ''')
+
+    st.markdown('---')
+
+    st.markdown('''
                 Here below are the main tools / libraries that have been used:
                 * **PyPDFLoader, RecursiveCharacterTextSplitter** for PDF loading and parsing into smaller chunks
                 * **LangChain** for text preprocessing / pipeline
@@ -27,12 +43,13 @@ with st.expander("How it works ?"):
                 * **Chroma** vector database to store and search into vectors embedding (cost & time savings)
                 * **LLM: gpt-3.5-turbo** ChatModel from OpenAI
                 * **RetrievalQA** to call the model on chunks with highest similarity only instead of passing the full text (cost & time savings)
-
                 ''')
 
 
 st.subheader(f':closed_lock_with_key: API Key')
 openai_key = st.text_input("Enter your OpenAI API key",type='password')
+
+
 # Set the API key as an environment variable
 
 ### CHECK IF API KEY PROVIDED ###
@@ -100,3 +117,6 @@ if openai_key:
 
                 with st.expander('Sources and Pages'):
                     st.write([st.write(f'Page:{doc.metadata["page"]+1}\n---------------------------\n{doc.page_content}') for doc in answer['source_documents']][0])
+else:
+    sign_up_link = "https://platform.openai.com/signup?launch"
+    st.markdown("No API key yet? [Sign up here](" + sign_up_link + ")")
