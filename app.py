@@ -7,9 +7,8 @@ from functions import *
 
 # Display the logo image in the second column
 col1, col2 = st.columns([1,1])
-#col1.image('logo-admin.png', width=300)
-col1.title('PDF Q&A')
-col2.subheader("Ask questions to your PDF documents | Powered by Open AI's ChatGPT")
+col1.title('PDF Q&A Assistant')
+col2.subheader("Ask questions to your PDF | Powered by Open AI's ChatGPT")
 
 with st.expander("How it works"):
     st.markdown('''
