@@ -5,10 +5,24 @@ from langchain.chat_models import ChatOpenAI
 import openai
 from functions import *
 
+
+st.markdown(
+    """
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2XPTHR86N"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-K2XPTHR86N');
+    </script>
+    """, unsafe_allow_html=True)
+
 # Display the logo image in the second column
 col1, col2 = st.columns([1,5])
 col1.image('logo.png')
-col2.title('PDF Assistant')
+col2.title('PDF Assistant - NS Partners demo')
 st.subheader("Ask questions to your PDF | Powered by Open AI's ChatGPT")
 
 with st.expander("How it works"):
