@@ -4,3 +4,4 @@ chromadb
 tiktoken
 openai
 streamlit
+streamlit-analytics

@@ -1,23 +1,13 @@
 import streamlit as st
+import streamlit_analytics
 import os
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 import openai
 from functions import *
 
-
-st.markdown(
-    """
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2XPTHR86N"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-K2XPTHR86N');
-    </script>
-    """, unsafe_allow_html=True)
+streamlit_analytics.start_tracking()
+# your streamlit code here
 
 # Display the logo image in the second column
 col1, col2 = st.columns([1,5])
@@ -132,3 +122,6 @@ if openai_key:
 else:
     sign_up_link = "https://platform.openai.com/signup?launch"
     st.markdown("No API key yet? [Sign up here](" + sign_up_link + ")")
+
+
+streamlit_analytics.stop_tracking()
