@@ -22,7 +22,7 @@ st.markdown(
 # Display the logo image in the second column
 col1, col2 = st.columns([1,5])
 col1.image('logo.png')
-col2.title('PDF Assistant - NS Partners demo')
+col2.title('PDF Assistant')
 st.subheader("Ask questions to your PDF | Powered by Open AI's ChatGPT")
 
 with st.expander("How it works"):
