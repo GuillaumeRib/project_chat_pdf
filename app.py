@@ -17,12 +17,12 @@ st.subheader("Ask questions to your PDF | Powered by Open AI's ChatGPT")
 
 with st.expander("How it works"):
     st.markdown('''
-                - This tool aims to parse your own PDF documents, allowing you to train language models (LLMs) on them and ask specific questions about their contents.
-                - Provide an API key from OpenAI.
+                This app gives you the opportunity to ask questions about your own PDF documents' content.
+                1. Provide an API key from OpenAI.
                 - It incurs a cost, but you can utilize the free credits (USD 5) provided by OpenAI when signing up (https://openai.com/). Registration should take no more than 1-2 minutes.
                 - The underlying models have been selected based on their strong performance-to-cost ratio (see pricing information and cost examples below).
-                - Select a PDF document with which you want to interact.
-                - Ask your question and receive the answer along with an excerpt from the source and the corresponding page number.
+                2. Select a PDF document with which you want to interact.
+                3. Ask your question and get an answer from ChatGPT LLM together with sources and the corresponding page numbers.
                 ''')
 
     st.markdown('---')
