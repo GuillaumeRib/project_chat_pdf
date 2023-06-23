@@ -6,7 +6,7 @@ def parse_pdf(temp_file):
 
     # Split the docs in chunks
     from langchain.text_splitter import RecursiveCharacterTextSplitter #text splitter
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     texts = text_splitter.split_documents(documents)
     return documents, texts
 
@@ -15,10 +15,10 @@ def parse_pdf(temp_file):
 def get_answer(prompt,vectordb,n_chunks):
     # Select llm model
     from langchain.chat_models import ChatOpenAI
-    chat_open_ai_llm = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.5)
+    chat_open_ai_llm = ChatOpenAI(model='gpt-3.5-turbo',temperature=0.3)
 
     # Select number of chunks to pass to llm model after similarity performed on embeddings
-    k = min([4,n_chunks])
+    k = min([6,n_chunks])
     retriever = vectordb.as_retriever(search_type='similarity',
                                    search_kwargs={'k':k}
                                             )
