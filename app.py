@@ -6,8 +6,6 @@ from langchain.chat_models import ChatOpenAI
 import openai
 from functions import *
 
-streamlit_analytics.start_tracking()
-# your streamlit code here
 
 # Display the logo image in the second column
 col1, col2 = st.columns([1,5])
@@ -67,6 +65,8 @@ if openai_key:
 
     ### CHECK IF PDF DOCUMENT UPLOADED ###
     if pdf_file:
+        streamlit_analytics.start_tracking()
+        # your streamlit code here
         with open('temp.pdf', 'wb') as temp_file:
             temp_file.write(pdf_file.read())
 
