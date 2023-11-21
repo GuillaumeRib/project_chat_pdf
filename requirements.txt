@@ -1,7 +1,7 @@
 pypdf
-langchain
+langchain==0.0.192
 chromadb==0.3.26
-pydantic==1.9.0
+pydantic==1.10.8
 tiktoken
 openai
 streamlit
