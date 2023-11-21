@@ -1,8 +1,7 @@
 pypdf
 langchain
-chromadb
+chromadb==0.3.26
 tiktoken
 openai
 streamlit
 streamlit-analytics
-sqlite3==3.35.00
