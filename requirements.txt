@@ -5,3 +5,4 @@ tiktoken
 openai
 streamlit
 streamlit-analytics
+sqlite3==3.35.00
