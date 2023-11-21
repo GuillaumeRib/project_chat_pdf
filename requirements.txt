@@ -5,4 +5,3 @@ tiktoken
 openai
 streamlit
 streamlit-analytics
-sqlite3
