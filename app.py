@@ -65,6 +65,7 @@ if openai_key:
 
     ### CHECK IF PDF DOCUMENT UPLOADED ###
     if pdf_file:
+        ### ANALYTICS START ###
         streamlit_analytics.start_tracking()
         # your streamlit code here
         with open('temp.pdf', 'wb') as temp_file:
@@ -119,9 +120,9 @@ if openai_key:
 
                 with st.expander('Sources and Pages'):
                     st.write([st.write(f'Page:{doc.metadata["page"]+1}\n---------------------------\n{doc.page_content}') for doc in answer['source_documents']][0])
+        ### ANALYTICS END ###
+        streamlit_analytics.stop_tracking()
+
 else:
     sign_up_link = "https://platform.openai.com/signup?launch"
     st.markdown("No API key yet? [Sign up here](" + sign_up_link + ")")
-
-
-streamlit_analytics.stop_tracking()
