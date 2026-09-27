@@ -17,8 +17,5 @@
 - RetrievalQA to call the model on chunks with highest similarity only instead of passing the full text (cost & time savings)
 
 # Type of analysis
-- Data extraction / Document parsing / Vector Database/ NLP / LLM / Front-end app
+- Data extraction / Document parsing / Vector Database/ NLP / LLM / Front-end Streamlit app
 
-# Front-end
-- Live app: https://guillaumerib-project-chat-pdf-app.streamlit.app/
-- App may need to wake-up first if not used recently. Thanks you for your patience.
